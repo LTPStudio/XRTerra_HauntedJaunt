@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
     public Canvas TitleScreen; 
     public Canvas GameScreen;
     public Canvas PauseScreen;
@@ -12,10 +13,22 @@ public class GameManager : MonoBehaviour
 
     public Transform spawnPosition; 
 
+void Awake(){
+    if (instance == null){
+        instance = this; 
+    }
+}
+
+void Start(){
+    ResetUI();
+    ShowTitleScreen();
+}
 
     public void ResetUI(){
         TitleScreen.gameObject.SetActive(false);
         PauseScreen.gameObject.SetActive(false);
+        GameScreen.gameObject.SetActive(false);
+        GameOverScreen.gameObject.SetActive(false);
     }
 
     public void ShowPauseScreen(){

@@ -15,7 +15,6 @@ public class Menu : MonoBehaviour
     }
     public void StartGame()
     {
-        print("Did button press");
         vcam_Menu.m_Priority = 0;
         vcam_Game.m_Priority = 1; 
     }
