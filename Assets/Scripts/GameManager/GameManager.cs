@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Canvas GameScreen;
     public Canvas PauseScreen;
     public Canvas GameOverScreen;
+    public Canvas CutSceneSceen; 
 
     public Transform spawnPosition; 
 
@@ -29,6 +30,7 @@ void Start(){
         PauseScreen.gameObject.SetActive(false);
         GameScreen.gameObject.SetActive(false);
         GameOverScreen.gameObject.SetActive(false);
+        CutSceneSceen.gameObject.SetActive(false);
     }
 
     public void ShowPauseScreen(){
@@ -41,6 +43,12 @@ void Start(){
 
     public void ShowGameOverScreen(){
         GameOverScreen.gameObject.SetActive(true);
+    }
+
+    public void ShowCutSceneScreen()
+    {
+        ResetUI();
+        CutSceneSceen.gameObject.SetActive(true);
     }
 
     public void QuitApplication(){

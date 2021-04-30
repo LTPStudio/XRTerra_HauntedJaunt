@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMovement(InputAction.CallbackContext context)
     {
+
         Vector2 inputVector = context.ReadValue<Vector2>();
         inputVector.Normalize();
 

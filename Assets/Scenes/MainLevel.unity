@@ -5103,7 +5103,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.0026977914, y: 0.9972926, z: -0.054114882, w: -0.04971807}
+  m_LocalRotation: {x: -0.0026977912, y: 0.9972926, z: -0.05411488, w: -0.049718067}
   m_LocalPosition: {x: -10.799988, y: 1.1900024, z: -3.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -5891,7 +5891,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 59.8
+  m_fontSize: 41.75
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6188,7 +6188,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.65
+  m_fontSize: 33.25
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6387,7 +6387,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718104226}
-  m_LocalRotation: {x: -0.0026977914, y: 0.9972926, z: -0.054114882, w: -0.04971807}
+  m_LocalRotation: {x: -0.0026977912, y: 0.9972926, z: -0.05411488, w: -0.049718067}
   m_LocalPosition: {x: -970.8, y: -538.81, z: 13.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6939,7 +6939,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 108.6
+  m_fontSize: 75.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7386,7 +7386,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Actions
       value: 
-      objectReference: {fileID: -944628639613478452, guid: e6d2079be71064a4ba4b8b158edfc610,
+      objectReference: {fileID: -944628639613478452, guid: d07717842fa45644cb94b38c5e0a03b8,
         type: 3}
     - target: {fileID: 3113506496244396473, guid: 54722a923c243a04f82bb206012eac55,
         type: 3}
@@ -7396,7 +7396,12 @@ PrefabInstance:
     - target: {fileID: 3113506496244396473, guid: 54722a923c243a04f82bb206012eac55,
         type: 3}
       propertyPath: m_DefaultActionMap
-      value: 3rdPersonControl
+      value: 3rd Person Control
+      objectReference: {fileID: 0}
+    - target: {fileID: 3113506496244396473, guid: 54722a923c243a04f82bb206012eac55,
+        type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3113506496244396473, guid: 54722a923c243a04f82bb206012eac55,
         type: 3}
@@ -7411,12 +7416,12 @@ PrefabInstance:
     - target: {fileID: 3113506496244396473, guid: 54722a923c243a04f82bb206012eac55,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[0].m_ActionId
-      value: 38e5ef9a-06d9-4081-a128-64f69afafebb
+      value: a43c84c7-3b44-49bf-a6cc-492235b6345e
       objectReference: {fileID: 0}
     - target: {fileID: 3113506496244396473, guid: 54722a923c243a04f82bb206012eac55,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[0].m_ActionName
-      value: 3rdPersonControl/New action[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+      value: 3rd Person Control/PlayerInput[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
       objectReference: {fileID: 0}
     - target: {fileID: 3113506496244396473, guid: 54722a923c243a04f82bb206012eac55,
         type: 3}
