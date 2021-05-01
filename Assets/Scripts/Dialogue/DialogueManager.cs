@@ -40,7 +40,7 @@ public class DialogueManager : MonoBehaviour
         dialogueTriggerCaller = caller;
         buttonText.text = "Next";
         animator.SetBool("IsOpen", true);
-        print("Starting conversation with " + dialogue.name);
+        //print("Starting conversation with " + dialogue.name);
 
         nameText.text = dialogue.name;
 
@@ -81,7 +81,7 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueTriggerCaller.DialogueOver();
         animator.SetBool("IsOpen", false);
-        print("End of conversation");
+        //print("End of conversation");
         GameManager.instance.EndCutSceneScreen();
     }
 }

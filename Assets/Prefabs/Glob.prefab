@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 2923166085588924349}
   - component: {fileID: 2923166085588924348}
   - component: {fileID: 2923166085588924351}
+  - component: {fileID: 4395632689655989158}
   m_Layer: 6
-  m_Name: Sumpin
+  m_Name: Glob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,5 +94,17 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4395632689655989158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2923166085588924350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 821832caf7feba24296934ed40992219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
