@@ -9,8 +9,8 @@ public class Glob_interactable : MonoBehaviour
         if (other.tag == "Player")
         {
             other.GetComponent<Player>().AddToGlobCount();
+            Destroy(this.gameObject);
         }
         //maybe play sound? 
-        Destroy(this.gameObject);
     }
 }

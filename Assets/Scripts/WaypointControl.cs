@@ -6,14 +6,17 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class WaypointControl : MonoBehaviour
 {
-    public Transform[] waypoints;
+    public Transform[] scatterPoints;
+    public enum EnemyState { Wander, Scatter, Chase, Flee }
+    public EnemyState enemyState = EnemyState.Wander;
 
     NavMeshAgent agent;
     int currentIndex;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.SetDestination(waypoints[0].position);
+        StartCoroutine(PeriodicSearch());
+        agent.SetDestination(scatterPoints[0].position);
     }
 
     // Update is called once per frame
@@ -22,9 +25,20 @@ public class WaypointControl : MonoBehaviour
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
             currentIndex++;
-            currentIndex %= waypoints.Length; //it'll loop back to zero and repeat forevs
+            currentIndex %= scatterPoints.Length; //it'll loop back to zero and repeat forevs
 
-            agent.SetDestination(waypoints[currentIndex].position);
+            agent.SetDestination(scatterPoints[currentIndex].position);
         }
+    }
+    IEnumerator PeriodicSearch()
+    {
+        yield return null;
+        //while( enemyState == EnemyState.Chase)
+        //{
+        //    yield return new WaitForSeconds(1);
+        //    agent.SetDestination(scatterPoints[0].position);
+
+        //}
+
     }
 }

@@ -5,8 +5,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public static Player instance;
+    [SerializeField]
+    public bool[] keysCollected = new bool[3]; 
 
-    private int globCount = 0;
+    public int globCount = 25;
 
     private void Awake()
     {

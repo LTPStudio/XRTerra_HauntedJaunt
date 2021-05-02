@@ -17,7 +17,6 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text nameText;
     public TMP_Text dialogueText;
     public TMP_Text buttonText;
-    public UnityEvent endEvent;
 
     private Queue<string> sentences;
 
@@ -62,7 +61,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-        print(sentence);
+        //print(sentence);
         StopAllCoroutines(); // if the player skips before completing stop the process
         StartCoroutine(TypeSentence(sentence));
     }
@@ -82,6 +81,5 @@ public class DialogueManager : MonoBehaviour
         dialogueTriggerCaller.DialogueOver();
         animator.SetBool("IsOpen", false);
         //print("End of conversation");
-        GameManager.instance.EndCutSceneScreen();
     }
 }

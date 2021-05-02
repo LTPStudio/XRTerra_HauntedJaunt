@@ -12,11 +12,14 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public Canvas TitleScreen;
     public Canvas GameScreen;
+    public Animator AwardAnimator;
+    public KeyManager KeyManager;
     public TMP_Text GlobCount;
     public Canvas PauseScreen;
     public Canvas GameOverScreen;
     public Canvas CutSceneSceen;
     public CinemachineVirtualCamera vc_game;
+    [HideInInspector]
     public CinemachineVirtualCamera vc_cutscene;
     public Gargoyle_Interactor[] gargoyle_interactors;
 
@@ -33,7 +36,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        ResetUI(true);
         ResetUI();
         ShowTitleScreen();
     }
@@ -57,6 +59,7 @@ public class GameManager : MonoBehaviour
     public void ShowTitleScreen()
     {
         TitleScreen.gameObject.SetActive(true);
+        EnablePlayerMovement(false);
     }
 
     public void ShowGameOverScreen()
@@ -64,6 +67,7 @@ public class GameManager : MonoBehaviour
         GameOverScreen.gameObject.SetActive(true);
     }
 
+    #region CUTSCENES AND AWARDS
     public void ShowCutSceneScreen()
     {
         ResetUI();
@@ -77,6 +81,22 @@ public class GameManager : MonoBehaviour
         vc_cutscene.Priority = 0;
         ResumeGame();
     }
+
+    public void ShowKeyAward(int keyID)
+    {
+        GameScreen.gameObject.SetActive(true);
+        StartCoroutine(StartAwardDisplay(keyID));
+    }
+
+    IEnumerator StartAwardDisplay(int keyID)
+    {
+        AwardAnimator.SetBool("IsOpen", true);
+        yield return new WaitForSeconds(2);
+        AwardAnimator.SetBool("IsOpen", false);
+        KeyManager.KeyCollected(keyID);
+        EndCutSceneScreen();
+    }
+    #endregion
 
     public void QuitApplication()
     {

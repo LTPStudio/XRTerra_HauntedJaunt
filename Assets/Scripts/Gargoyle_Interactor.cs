@@ -11,6 +11,8 @@ public class Gargoyle_Interactor : MonoBehaviour
     public DialogueTrigger hasEnoughGlobsDialogue;
     public bool hadFirstInteraction = false;
     public bool gaveKey = false;
+    [Range(0, 2)]
+    public int keyID;
 
     public enum GargoyleState { Introduction, WaitingForGlobs, HasEnoughGlobs, EndInteractions };
     public GargoyleState goyleState = GargoyleState.Introduction;
@@ -106,5 +108,15 @@ public class Gargoyle_Interactor : MonoBehaviour
     public void SubtractGlobs()
     {
         Player.instance.SubtractGlobCount(25);
+    }
+
+    public void ResumeGame()
+    {
+        GameManager.instance.ResumeGame();
+    }
+
+    public void ShowKeyAward()
+    {
+        GameManager.instance.ShowKeyAward(keyID);
     }
 }
