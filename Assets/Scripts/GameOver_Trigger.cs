@@ -27,6 +27,7 @@ float  imageDuration = 1f;
     }
 
     public void CaughtPlayer(){
+        print("caught player");
         isPlayerCaught = true;
                 timer += Time.deltaTime;
 

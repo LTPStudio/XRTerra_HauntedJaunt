@@ -22,22 +22,21 @@ public class EnemyStateHandler : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
-    void UpdateEnemyState(bool isEnabled)
+    public void SetScatterDestination()
     {
-        agent.enabled = isEnabled;
+        agent.SetDestination(scatterPoints[0].position);
     }
-
     // Update is called once per frame
     void Update()
     {
         if (enemyManager.enemyState == EnemyManager.EnemyState.Chase)
         {
-            agent.enabled = true;
+
             agent.SetDestination(chaseDestination.position);
         }
         if (enemyManager.enemyState == EnemyManager.EnemyState.Scatter)
         {
-            agent.enabled = true;
+  
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
                 currentIndex++;
@@ -48,15 +47,15 @@ public class EnemyStateHandler : MonoBehaviour
         }
         if (enemyManager.enemyState == EnemyManager.EnemyState.Flee)
         {
-            agent.enabled = true;
+     
         }
         if (enemyManager.enemyState == EnemyManager.EnemyState.Wander)
         {
-            agent.enabled = true;
+ 
         }
         if (enemyManager.enemyState == EnemyManager.EnemyState.Freeze)
         {
-            agent.enabled = false;
+ 
         }
     }
 

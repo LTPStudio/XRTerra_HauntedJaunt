@@ -9,14 +9,34 @@ public class EnemyManager : MonoBehaviour
     public GameObject[] enemies;
     public enum EnemyState { Wander, Scatter, Chase, Flee, Freeze }
     public EnemyState enemyState = EnemyState.Wander;
+    public bool dontChase = false;
 
     public void EnabledEnemies(bool isEnabled)
     {
+        //if is true enable 
         foreach (GameObject enemy in enemies)
         {
-            print(enemy.name + " is " + isEnabled);
+
             enemy.GetComponent<NavMeshAgent>().isStopped = !isEnabled;
         }
+    }
+
+    public void StartChase()
+    {
+        if (dontChase) return;
+        enemyState = EnemyState.Chase;
+        StartCoroutine(ChaseTime());
+
+    }
+
+    IEnumerator ChaseTime()
+    {
+        yield return new WaitForSeconds(30f);
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.GetComponent<EnemyStateHandler>().SetScatterDestination();
+        }
+        enemyState = EnemyState.Scatter;
     }
 
     private void Awake()

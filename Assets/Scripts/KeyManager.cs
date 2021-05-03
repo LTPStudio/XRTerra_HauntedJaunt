@@ -17,6 +17,7 @@ public class KeyManager : MonoBehaviour
 
     public void KeyCollected(int keyId)
     {
+        print(keyId);
         keys[keyId].SetActive(true);
     }
 }

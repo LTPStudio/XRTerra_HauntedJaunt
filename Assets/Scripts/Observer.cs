@@ -5,26 +5,20 @@ using UnityEngine;
 public class Observer : MonoBehaviour
 {
     public Transform Player;
+    public Transform grabTransform;
 
 
     bool isPlayerInRange = false;
 
-    void Awake()
-    {
 
-    }
 
-    void UpdateEnemyState()
-    {
-        print("delegate working");
-        //check enemy manager enemyState 
-    }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
             isPlayerInRange = true;
+            GameOver_Trigger.instance.CaughtPlayer();
         }
     }
 
@@ -39,20 +33,22 @@ public class Observer : MonoBehaviour
     {
         if (isPlayerInRange)
         {
-            Vector3 direction = Player.position - transform.position;
-            direction.y += 1;
+            //Vector3 direction = Player.position - transform.position;
+            //direction.y += 1;
 
-            Ray ray = new Ray(transform.position, direction);
-            RaycastHit hit;
+            //Ray ray = new Ray(transform.position, direction);
+            //RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.collider.tag == "Player")
-                {
-                    print("Player Caught");
-                    GameOver_Trigger.instance.CaughtPlayer();
-                }
-            }
+            //if (Physics.Raycast(ray, out hit))
+            //{
+            //    if (hit.collider.tag == "Player")
+            //    {
+            //        print("Player Caught");
+            //        GameOver_Trigger.instance.CaughtPlayer();
+            //    }
+            //}
+            GameOver_Trigger.instance.CaughtPlayer();
+            Player.position = grabTransform.position;
         }
     }
 

@@ -99,6 +99,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         AwardAnimator.SetBool("IsOpen", false);
         KeyManager.KeyCollected(keyID);
+        EnemyManager.instance.StartChase();
         EndCutSceneScreen();
     }
     #endregion
@@ -111,7 +112,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         ResetUI();
-        StartCoroutine(WaitAMoment(1));
+        StartCoroutine(WaitAMoment(1.5f));
         GameScreen.gameObject.SetActive(true);
     }
 

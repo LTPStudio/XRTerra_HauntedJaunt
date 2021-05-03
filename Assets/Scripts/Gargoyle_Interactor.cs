@@ -11,7 +11,7 @@ public class Gargoyle_Interactor : MonoBehaviour
     public DialogueTrigger hasEnoughGlobsDialogue;
     public bool hadFirstInteraction = false;
     public bool gaveKey = false;
-    [Range(0, 2)]
+   
     public int keyID;
 
     public enum GargoyleState { Introduction, WaitingForGlobs, HasEnoughGlobs, EndInteractions };
@@ -117,6 +117,7 @@ public class Gargoyle_Interactor : MonoBehaviour
 
     public void ShowKeyAward()
     {
+        print(keyID);
         GameManager.instance.ShowKeyAward(keyID);
     }
 
