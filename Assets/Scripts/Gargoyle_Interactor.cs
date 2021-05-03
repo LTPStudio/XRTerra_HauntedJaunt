@@ -119,4 +119,10 @@ public class Gargoyle_Interactor : MonoBehaviour
     {
         GameManager.instance.ShowKeyAward(keyID);
     }
+
+    public void SayHello()
+    {
+        print("hello");
+    }
+
 }

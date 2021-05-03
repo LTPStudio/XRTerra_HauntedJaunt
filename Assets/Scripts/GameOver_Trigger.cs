@@ -59,7 +59,7 @@ float  imageDuration = 1f;
 
         exitCanvasGroup.alpha = timer/ fadeDuration;
 
-        if (timer> fadeDuration + imageDuration)
+        if (timer> fadeDuration + imageDuration + 3)
         {
             SceneManager.LoadScene(0);
             //maybe add new start screen

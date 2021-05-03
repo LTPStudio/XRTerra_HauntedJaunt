@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
 
     public Transform spawnPosition;
 
+    public int globCount; 
+
     void Awake()
     {
         if (instance == null)
@@ -53,6 +55,7 @@ public class GameManager : MonoBehaviour
     public void ShowPauseScreen()
     {
         EnablePlayerMovement(false);
+        EnableEnemyMovement(false);
         PauseScreen.gameObject.SetActive(true);
     }
 
@@ -60,6 +63,7 @@ public class GameManager : MonoBehaviour
     {
         TitleScreen.gameObject.SetActive(true);
         EnablePlayerMovement(false);
+        EnableEnemyMovement(false);
     }
 
     public void ShowGameOverScreen()
@@ -71,6 +75,7 @@ public class GameManager : MonoBehaviour
     public void ShowCutSceneScreen()
     {
         ResetUI();
+        EnableEnemyMovement(false);
         EnablePlayerMovement(false);
         vc_cutscene.Priority = 1;
         CutSceneSceen.gameObject.SetActive(true);
@@ -106,14 +111,21 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         ResetUI();
-        EnablePlayerMovement(true);
+        StartCoroutine(WaitAMoment(1));
         GameScreen.gameObject.SetActive(true);
+    }
+
+    IEnumerator WaitAMoment(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        EnablePlayerMovement(true);
     }
 
     public void ResumeGame()
     {
         ResetUI();
         EnablePlayerMovement(true);
+        EnableEnemyMovement(true);
         GameScreen.gameObject.SetActive(true);
     }
 
@@ -122,8 +134,15 @@ public class GameManager : MonoBehaviour
         Player.instance.GetComponent<PlayerInput>().enabled = isEnabled;
     }
 
-    public void UpdateGlobCount(int globCount)
+    public void EnableEnemyMovement(bool isEnabled)
     {
+        EnemyManager.instance.EnabledEnemies(isEnabled);
+    }
+
+
+    public void UpdateGlobCount()
+    {
+
         if (globCount >= 25)
         {
             foreach (Gargoyle_Interactor gargoyle in gargoyle_interactors)

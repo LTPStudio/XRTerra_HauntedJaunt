@@ -15,7 +15,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public void DialogueOver()
     {
-        print("dialogue over");
+        //print("dialogue over");
         if (overEvent != null)
         {
             overEvent.Invoke();

@@ -5,8 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public static Player instance;
-    [SerializeField]
-    public bool[] keysCollected = new bool[3]; 
+    public int keyCount; 
 
     public int globCount = 25;
 
@@ -18,15 +17,27 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        GameManager.instance.globCount = globCount;
+    }
+
     public void SubtractGlobCount(int amount)
     {
         globCount -= amount;
-        GameManager.instance.UpdateGlobCount(globCount);
+        GameManager.instance.globCount = globCount;
+        GameManager.instance.UpdateGlobCount();
     }
 
     public void AddToGlobCount()
     {
         globCount++;
-        GameManager.instance.UpdateGlobCount(globCount);
+        GameManager.instance.globCount = globCount;
+        GameManager.instance.UpdateGlobCount();
+    }
+
+    public void AddToKeyCount()
+    {
+        keyCount++;
     }
 }
