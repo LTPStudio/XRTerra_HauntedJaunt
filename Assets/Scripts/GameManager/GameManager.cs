@@ -22,10 +22,11 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public CinemachineVirtualCamera vc_cutscene;
     public Gargoyle_Interactor[] gargoyle_interactors;
+    public GameObject globContainer;
 
     public Transform spawnPosition;
 
-    public int globCount; 
+    public int globCount;
 
     void Awake()
     {
@@ -137,7 +138,11 @@ public class GameManager : MonoBehaviour
 
     public void EnableEnemyMovement(bool isEnabled)
     {
-        EnemyManager.instance.EnabledEnemies(isEnabled);
+        if (EnemyManager.instance != null)
+        {
+            EnemyManager.instance.EnabledEnemies(isEnabled);
+
+        }
     }
 
 
@@ -151,6 +156,8 @@ public class GameManager : MonoBehaviour
                 if (gargoyle == null) return;
                 gargoyle.HasEnoughGlobs();
             }
+            globContainer.SetActive(false);
+            EnemyManager.instance.ChangeToScatter();
             //update gargoyles to HasEnoughGlobs()
         }
         else if (globCount < 25)
@@ -160,6 +167,7 @@ public class GameManager : MonoBehaviour
                 if (gargoyle == null) return;
                 gargoyle.HasNotEnoughGlobs();
             }
+            globContainer.SetActive(true);
         }
         GlobCount.text = globCount.ToString();
     }

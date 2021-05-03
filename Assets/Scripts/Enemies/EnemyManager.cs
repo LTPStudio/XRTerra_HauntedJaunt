@@ -21,17 +21,37 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    public void ActivateGhosts()
+    {
+        foreach (GameObject enemy in enemies)
+        {
+
+            enemy.SetActive(true);
+            EnabledEnemies(false);
+        }
+    }
+
     public void StartChase()
     {
+        StopAllCoroutines();
         if (dontChase) return;
         enemyState = EnemyState.Chase;
-        StartCoroutine(ChaseTime());
+        //StartCoroutine(ChaseTime());
 
     }
 
     IEnumerator ChaseTime()
     {
         yield return new WaitForSeconds(30f);
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.GetComponent<EnemyStateHandler>().SetScatterDestination();
+        }
+        enemyState = EnemyState.Scatter;
+    }
+
+    public void ChangeToScatter()
+    {
         foreach (GameObject enemy in enemies)
         {
             enemy.GetComponent<EnemyStateHandler>().SetScatterDestination();
@@ -49,7 +69,11 @@ public class EnemyManager : MonoBehaviour
 
     void Start()
     {
-        
+        foreach (GameObject enemy in enemies)
+        {
+
+            enemy.SetActive(false) ;
+        }
     }
 
     //void UpdateEnemyState(EnemyState newEnemyState)

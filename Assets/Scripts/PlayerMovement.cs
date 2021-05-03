@@ -20,14 +20,21 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMovement(InputAction.CallbackContext context)
     {
-
         Vector2 inputVector = context.ReadValue<Vector2>();
         inputVector.Normalize();
 
         movement.Set(inputVector.x, 0, inputVector.y);
         bool isWalking = (movement.magnitude > .1f);
+        if (EnemyManager.instance.enemyState == EnemyManager.EnemyState.Chase)
+        {
+            animator.SetBool("IsFleeing", isWalking);
+        }
+        else
+        {
+            animator.SetBool("IsFleeing", false);
+            animator.SetBool("IsWalking", isWalking);
 
-        animator.SetBool("IsWalking", isWalking);
+        }
 
         //bool isWalking 
     }

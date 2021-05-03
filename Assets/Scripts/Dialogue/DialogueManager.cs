@@ -76,7 +76,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void EndDialogue()
+    public void EndDialogue()
     {
         dialogueTriggerCaller.DialogueOver();
         animator.SetBool("IsOpen", false);
