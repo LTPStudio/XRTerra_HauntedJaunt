@@ -13,21 +13,34 @@ public class Gargoyle_Interactor : MonoBehaviour
     public bool gaveKey = false;
    
     public int keyID;
-
+    public enum IsGargoyle { Doyle, Merriam, Koyle }
+    public IsGargoyle gargoyleName; 
     public enum GargoyleState { Introduction, WaitingForGlobs, HasEnoughGlobs, EndInteractions };
     public GargoyleState goyleState = GargoyleState.Introduction;
 
+    public BoxCollider nextCollider;
+
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
+        alert.gameObject.SetActive(true);
+    }
 
+    private void OnDisable()
+    {
+        alert.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public void SetAlertActive()
+    {
+        alert.gameObject.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -52,6 +65,7 @@ public class Gargoyle_Interactor : MonoBehaviour
 
     public void Introduction()
     {
+
         hadFirstInteraction = true;
         goyleState = GargoyleState.WaitingForGlobs;
         //hide alert

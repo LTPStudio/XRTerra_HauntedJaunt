@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         AwardAnimator.SetBool("IsOpen", false);
         KeyManager.KeyCollected(keyID);
-        EnemyManager.instance.StartChase();
+        EnemyManager.instance.StartChaseWithTimeLimit();
         EndCutSceneScreen();
     }
     #endregion
@@ -156,8 +156,12 @@ public class GameManager : MonoBehaviour
                 if (gargoyle == null) return;
                 gargoyle.HasEnoughGlobs();
             }
+
+    
             globContainer.SetActive(false);
             EnemyManager.instance.ChangeToScatter();
+
+          
             //update gargoyles to HasEnoughGlobs()
         }
         else if (globCount < 25)
@@ -167,7 +171,7 @@ public class GameManager : MonoBehaviour
                 if (gargoyle == null) return;
                 gargoyle.HasNotEnoughGlobs();
             }
-            globContainer.SetActive(true);
+            
         }
         GlobCount.text = globCount.ToString();
     }

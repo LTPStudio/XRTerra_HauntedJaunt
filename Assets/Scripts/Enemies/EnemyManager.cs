@@ -10,6 +10,7 @@ public class EnemyManager : MonoBehaviour
     public enum EnemyState { Wander, Scatter, Chase, Flee, Freeze }
     public EnemyState enemyState = EnemyState.Wander;
     public bool dontChase = false;
+    public GameObject globsContainer; 
 
     public void EnabledEnemies(bool isEnabled)
     {
@@ -23,26 +24,34 @@ public class EnemyManager : MonoBehaviour
 
     public void ActivateGhosts()
     {
-        foreach (GameObject enemy in enemies)
-        {
+        //foreach (GameObject enemy in enemies)
+        //{
 
-            enemy.SetActive(true);
-            EnabledEnemies(false);
-        }
+        //    enemy.SetActive(true);
+        //    EnabledEnemies(false);
+        //}
     }
 
     public void StartChase()
     {
         StopAllCoroutines();
         if (dontChase) return;
+        globsContainer.SetActive(true);
         enemyState = EnemyState.Chase;
         //StartCoroutine(ChaseTime());
+    }
 
+    public void StartChaseWithTimeLimit()
+    {
+        StopAllCoroutines();
+        if (dontChase) return;
+        enemyState = EnemyState.Chase;
+        StartCoroutine(ChaseTime());
     }
 
     IEnumerator ChaseTime()
     {
-        yield return new WaitForSeconds(30f);
+        yield return new WaitForSeconds(20f);
         foreach (GameObject enemy in enemies)
         {
             enemy.GetComponent<EnemyStateHandler>().SetScatterDestination();
@@ -69,11 +78,11 @@ public class EnemyManager : MonoBehaviour
 
     void Start()
     {
-        foreach (GameObject enemy in enemies)
-        {
+        //foreach (GameObject enemy in enemies)
+        //{
 
-            enemy.SetActive(false) ;
-        }
+        //    enemy.SetActive(false) ;
+        //}
     }
 
     //void UpdateEnemyState(EnemyState newEnemyState)
