@@ -8784,8 +8784,7 @@ MonoBehaviour:
   ghostType: 0
   PlayerIsClose: 0
   closeRadius: 2
-  closeSpeed: 1.25
-  farSpeed: 1.5
+  chaseSpeed: 2
 --- !u!1001 &479947765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11697,8 +11696,7 @@ MonoBehaviour:
   ghostType: 0
   PlayerIsClose: 0
   closeRadius: 2
-  closeSpeed: 1.5
-  farSpeed: 1.75
+  chaseSpeed: 2
 --- !u!1001 &607557586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23102,8 +23100,7 @@ MonoBehaviour:
   ghostType: 0
   PlayerIsClose: 0
   closeRadius: 2
-  closeSpeed: 1.25
-  farSpeed: 1.5
+  chaseSpeed: 2
 --- !u!1001 &1187590308
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29379,8 +29376,7 @@ MonoBehaviour:
   ghostType: 0
   PlayerIsClose: 0
   closeRadius: 3
-  closeSpeed: 1.25
-  farSpeed: 1.5
+  chaseSpeed: 2
 --- !u!4 &1575065010 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4010033935308886, guid: 390c961e3e2b03342b3aabdfa362e13a,

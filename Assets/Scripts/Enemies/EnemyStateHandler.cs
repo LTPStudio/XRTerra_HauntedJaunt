@@ -16,8 +16,8 @@ public class EnemyStateHandler : MonoBehaviour
     public bool PlayerIsClose;
 
     public float closeRadius = 5.0F;
-    public float closeSpeed = 2f;
-    public float farSpeed = 2f;
+    public float chaseSpeed = 2f;
+
 
 
     private void Start()
@@ -36,17 +36,18 @@ public class EnemyStateHandler : MonoBehaviour
     {
         if (enemyManager.enemyState == EnemyManager.EnemyState.Chase)
         {
+            agent.speed = chaseSpeed;
             if (Vector3.Distance(player.transform.position, transform.position) < closeRadius)
             {
                 PlayerIsClose = true;
                 agent.SetDestination(player.transform.position);
-                agent.speed = 2f;
+
             }
             else
             {
                 PlayerIsClose = false;
                 agent.SetDestination(chaseDestination.position);
-                agent.speed = 2.5f;
+
             }
         }
         if (enemyManager.enemyState == EnemyManager.EnemyState.Scatter)

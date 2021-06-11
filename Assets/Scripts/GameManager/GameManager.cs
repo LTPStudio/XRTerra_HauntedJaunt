@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         AwardAnimator.SetBool("IsOpen", false);
         KeyManager.KeyCollected(keyID);
-        EnemyManager.instance.StartChaseWithTimeLimit();
+        //EnemyManager.instance.StartChaseWithTimeLimit();
         EndCutSceneScreen();
     }
     #endregion
